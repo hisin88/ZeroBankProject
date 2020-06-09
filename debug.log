@@ -1,0 +1,2 @@
+[0608/202011.905:ERROR:exception_handler_server.cc(527)] ConnectNamedPipe: The pipe is being closed. (0xE8)
+[0608/202519.572:ERROR:exception_handler_server.cc(527)] ConnectNamedPipe: The pipe is being closed. (0xE8)
