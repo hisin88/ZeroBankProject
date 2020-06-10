@@ -42,7 +42,7 @@ Feature: Find Transactions in Accounts Activity
       | ONLINE       |
       | online       |
 
-  @wip
+
   Scenario Outline: Type
     When user selects type "<Search Type>"
     And clicks search

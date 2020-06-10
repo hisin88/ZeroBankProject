@@ -1,9 +1,7 @@
 package com.zerobank.stepdefinitions;
 
-import com.zerobank.pages.BasePage;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -11,15 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class ShowTransactionsStepDefs {
-
-    BasePage basePage = new BasePage();
-
-    //It takes the page name and call the basePage.navigateToPage method
-    @Given("the user is on the {string} page")
-    public void the_user_is_on_the_page(String pageName) {
-        basePage.navigateToPage(pageName);
-        System.out.println("You were on the " + pageName + " page");
-    }
 
     //It takes a string account type
     //And find and click on that account name on the Account Summary page
