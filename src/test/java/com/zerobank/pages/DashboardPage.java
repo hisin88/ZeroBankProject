@@ -1,0 +1,47 @@
+package com.zerobank.pages;
+
+import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.Given;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class DashboardPage extends BasePage{
+
+    @FindBy(xpath = "//a[@href='#ui-tabs-1']")
+    public WebElement showTransactionsTab;
+
+    @FindBy(xpath = "//a[@href='#ui-tabs-2']")
+    public WebElement findTransactionsTab;
+
+    @FindBy(xpath = "//a[@href='#ui-tabs-2']")
+    public WebElement addNewPayee;
+
+    //It takes a string pageName and if it is not the current page
+    //it navigates the browser to new page
+    @Given("the user is on the {string} page")
+    public void the_user_is_on_the_page(String pageName) {
+        if (!pageName.equals(activePage.getText())){
+            String path = "//a[contains(text(),'" + pageName + "')]";
+            Driver.get().findElement(By.xpath(path)).click();
+        }
+        System.out.println("You were on the " + pageName + " page");
+    }
+
+    @Given("the user is on the {string} tab")
+    public void the_user_is_on_the_tab_on_the_page(String tabName) {
+        BrowserUtils.waitForPageToLoad(5);
+        if (tabName.equals("Show Transactions") && showTransactionsTab.isEnabled()){
+            showTransactionsTab.click();
+        }
+        if (tabName.equals("Find Transactions") && findTransactionsTab.isEnabled()){
+            findTransactionsTab.click();
+        }
+        if (tabName.equals("Add New Payee") && addNewPayee.isEnabled()){
+            addNewPayee.click();
+        }
+        System.out.println("You were on the " + tabName + " tab");
+    }
+
+}
