@@ -1,11 +1,9 @@
 @findTransactions
-@exceptLogin
 
 Feature: Find Transactions in Accounts Activity
   Description: The purpose of this feature is to test the Find Transactions functionality on Accounts Activity
 
   Background: The user should be logged in, navigate to Account Summary Page and Find Transactions tab
-    Given the user is on the login page
     Given the user can login successfully
     Given the user is on the "Account Activity" page
     Given the user is on the "Find Transactions" tab

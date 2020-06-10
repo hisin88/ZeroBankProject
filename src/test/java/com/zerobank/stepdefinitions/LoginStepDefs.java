@@ -14,12 +14,6 @@ public class LoginStepDefs {
     LoginPage loginPage = new LoginPage();
     BasePage basePage = new BasePage();
 
-    //It calls the homePage.signIn() method
-    @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
-        homePage.signIn();
-    }
-
     //It calls homePage.signIn() method to navigate to the login page
     //And calls login() method with valid credentials to log in
     @Given("the user can login successfully")

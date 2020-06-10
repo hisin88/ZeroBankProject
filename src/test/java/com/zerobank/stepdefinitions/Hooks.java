@@ -14,7 +14,7 @@ public class Hooks {
     public void setUpLogin(Scenario scenario) {
         System.out.println(scenario.getName() + " started");
         Driver.get().manage().window().maximize();
-        Driver.get().get(ConfigurationReader.get("url"));
+        Driver.get().get(ConfigurationReader.get("urlLogin"));
     }
 
     @After
