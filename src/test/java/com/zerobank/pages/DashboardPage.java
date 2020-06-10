@@ -23,6 +23,9 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//a[@href='#ui-tabs-3']")
     public WebElement purchaseForeignCurrency;
 
+    @FindBy(xpath = "//a[@href='#ui-tabs-1']")
+    public WebElement paySavedPayeeTab;
+
     //It takes a string pageName and if it is not the current page
     //it navigates the browser to new page
     @Given("the user is on the {string} page")
@@ -50,6 +53,9 @@ public class DashboardPage extends BasePage{
         }
         if (tabName.equals("Purchase Foreign Currency") && purchaseForeignCurrency.isEnabled()){
             purchaseForeignCurrency.click();
+        }
+        if (tabName.equals("Pay Saved Payee") && paySavedPayeeTab.isEnabled()){
+            paySavedPayeeTab.click();
         }
         System.out.println("You were on the " + tabName + " tab");
     }
