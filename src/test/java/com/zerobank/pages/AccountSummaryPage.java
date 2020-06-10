@@ -7,10 +7,10 @@ import java.util.List;
 
 public class AccountSummaryPage extends BasePage{
 
-    @FindBy(xpath = "//div[@class='offset2 span8']")
+    @FindBy(xpath = "//h2[@class='board-header']")
     public List<WebElement> accountTypes;
 
-    @FindBy(xpath = "//div[@class='offset2 span8']/div[3]/div//tr")
+    @FindBy(xpath = "(//table)[3]/thead/tr/th")
     public List<WebElement> creditAccountsTableColumns;
 
 }

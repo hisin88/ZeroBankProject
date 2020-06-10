@@ -1,16 +1,11 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.BrowserUtils;
-import com.zerobank.utilities.Driver;
+import com.zerobank.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-
-    public LoginPage(){
-        PageFactory.initElements(Driver.get(),this);
-    }
+public class LoginPage extends BasePage{
 
     @FindBy(id = "user_login")
     public WebElement usernameInputBox;
@@ -31,6 +26,11 @@ public class LoginPage {
         passwordInputBox.sendKeys(password);
         submitButton.click();
         System.out.println("You were on the login page");
+    }
+
+    //It logs in with the valid credentials from configuration.properties
+    public void login() {
+        login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
     }
 
 }

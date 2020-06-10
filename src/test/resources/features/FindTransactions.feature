@@ -1,5 +1,6 @@
 @findTransactions
 
+
 Feature: Find Transactions in Accounts Activity
   Description: The purpose of this feature is to test the Find Transactions functionality on Accounts Activity
 

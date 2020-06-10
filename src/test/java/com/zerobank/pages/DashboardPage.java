@@ -3,6 +3,8 @@ package com.zerobank.pages;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,6 +34,8 @@ public class DashboardPage extends BasePage{
         System.out.println("You were on the " + pageName + " page");
     }
 
+    //It takes a string tabName and if it is not the current page
+    //it navigates the browser to new tab
     @Given("the user is on the {string} tab")
     public void the_user_is_on_the_tab_on_the_page(String tabName) {
         BrowserUtils.waitForPageToLoad(5);
@@ -48,6 +52,14 @@ public class DashboardPage extends BasePage{
             purchaseForeignCurrency.click();
         }
         System.out.println("You were on the " + tabName + " tab");
+    }
+
+
+    public void checkPageTitle(String pageName, String title) {
+        BrowserUtils.waitForPageToLoad(5);
+        Assert.assertEquals("Verify that the page title is correct",
+                Driver.get().getTitle(), title);
+        System.out.println(pageName + " page title was checked" );
     }
 
 }

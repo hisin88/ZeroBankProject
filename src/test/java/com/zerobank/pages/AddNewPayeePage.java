@@ -3,7 +3,7 @@ package com.zerobank.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PayBillsPage extends BasePage{
+public class AddNewPayeePage extends BasePage{
 
     @FindBy(id = "np_new_payee_name")
     public WebElement payeeNameInputBox;

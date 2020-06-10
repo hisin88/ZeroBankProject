@@ -1,32 +1,26 @@
 package com.zerobank.stepdefinitions;
 
-import com.zerobank.pages.BasePage;
-import com.zerobank.pages.HomePage;
+import com.zerobank.pages.DashboardPage;
 import com.zerobank.pages.LoginPage;
-import com.zerobank.utilities.ConfigurationReader;
+import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
 public class LoginStepDefs {
 
-    HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
-    BasePage basePage = new BasePage();
-
-    //It calls homePage.signIn() method to navigate to the login page
-    //And calls login() method with valid credentials to log in
-    @Given("the user can login successfully")
-    public void the_user_can_login_successfully() {
-        loginPage.login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
-    }
+    DashboardPage dashboardPage = new DashboardPage();
 
     //It takes 2 string as username and password and calls loginPage.login() method
     //Then asserts if the login is successful
     @Given("the user should be able to login with valid credentials {string} {string}")
     public void the_user_should_be_able_to_login_with_valid_credentials(String username, String password) {
         loginPage.login(username, password);
-        Assert.assertTrue("Verify user icon is displayed", basePage.userIcon.isDisplayed());
+        BrowserUtils.waitForVisibility(dashboardPage.userIcon,5);
+        Assert.assertEquals("Verify that user is on the Account Summary page",
+                            "Zero - Account Summary", Driver.get().getTitle());
         System.out.println("Your positive login test was successful");
     }
 
@@ -41,6 +35,12 @@ public class LoginStepDefs {
         Assert.assertTrue("Verify invalid credentials message is displayed",
                           loginPage.invalidCredentialsMessage.isDisplayed());
         System.out.println("Your negative login test was successful");
+    }
+
+    //It calls the loginPage.login() method
+    @Given("the user can login successfully")
+    public void the_user_can_login_successfully() {
+        loginPage.login();
     }
 
 }
