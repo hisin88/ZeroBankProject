@@ -1,5 +1,5 @@
 @paySavedPayee
-@wip
+
 Feature: Pay Saved Payee
   Description: The purpose of this feature is to test the Pay Saved Payee functionality on Pay Bills
 
@@ -8,7 +8,7 @@ Feature: Pay Saved Payee
     Given the user is on the "Pay Bills" page
     Given the user is on the "Pay Saved Payee" tab
 
-
+  @wip
   Scenario: Pay Bills Page should have title Zero - Pay Bills
     Then "Pay Bills" Page should have title "Zero - Pay Bills"
 
