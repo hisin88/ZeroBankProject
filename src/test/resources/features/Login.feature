@@ -4,7 +4,7 @@
 Feature: Only authorized users should be able to login
 Description: The purpose of this feature is to test the Login functionality
 
-  @positiveLogin
+  @positiveLogin @wip
   Scenario: The user should be able to login with valid credentials
     Then the user should be able to login with valid credentials "username" "password"
 
